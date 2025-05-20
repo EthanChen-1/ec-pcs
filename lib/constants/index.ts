@@ -1,0 +1,7 @@
+export const APP_NAME =
+  process.env.NEXT_PUBLIC_APP_NAME || "EC's Personal Computer Store";
+export const APP_DESCRIPTION =
+  process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
+  "Find custom build computers for a variety of different purposes ranging from home office PCs to high end productivity and gaming setups";
+export const SERVER_URL =
+  process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
