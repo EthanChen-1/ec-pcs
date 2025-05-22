@@ -5,3 +5,5 @@ export const APP_DESCRIPTION =
   "Find custom build computers for a variety of different purposes ranging from home office PCs to high end productivity and gaming setups";
 export const SERVER_URL =
   process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
+export const LATEST_PRODUCTS_LIMIT =
+  Number(process.env.LATEST_PRODUCTS_LIMIT) || 4;

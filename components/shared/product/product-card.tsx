@@ -11,8 +11,8 @@ function ProductCard({ product }: { product: any }) {
           <Image
             src={product.images[0]}
             alt={product.name}
-            height={300}
-            width={300}
+            height={500}
+            width={500}
             priority={true}
           />
         </Link>
