@@ -24,7 +24,7 @@ async function ProductDetailsPage(props: {
           <div className="col-span-2">
             <ProductImages images={product.images} />
           </div>
-          <div className="col-span-2 p-5">
+          <div className="col-span-2 px-4">
             <div className="flex flex-col gap-6">
               <p>{product.brand}</p>
               <p>{product.category} Computer</p>
@@ -35,12 +35,12 @@ async function ProductDetailsPage(props: {
               <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                 <ProductPrice
                   value={Number(product.price)}
-                  className="min-w-24 rounded-full bg-green-100 text-green-700 px-5 py-2"
+                  className="w-28 rounded-full bg-green-100 text-green-700 px-5 py-2"
                 />
               </div>
             </div>
             <div className="mt-10">
-              <p className="font-semibold ">Description</p>
+              <p className="font-semibold">Description</p>
               <p className="font-light">{product.description}</p>
             </div>
             <div className="mt-10">
