@@ -14,7 +14,6 @@ import { useTheme } from "next-themes";
 
 function ModeToggle() {
   const { theme, setTheme } = useTheme();
-  console.log(theme);
 
   const [mounted, setMounted] = useState(false);
 
