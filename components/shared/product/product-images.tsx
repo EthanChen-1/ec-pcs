@@ -11,9 +11,9 @@ function ProductImages({ images }: { images: string[] }) {
       <Image
         src={images[current]}
         alt="Product Image"
-        width={1000}
-        height={1000}
-        className="min-h-[300px] object-cover object-center"
+        height={750}
+        width={750}
+        priority={true}
       />
       <div className="flex">
         {images.map((image, index) => {

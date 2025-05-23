@@ -2216,6 +2216,7 @@ export namespace Prisma {
     memory: string | null
     motherboard: string | null
     gpu: string | null
+    powerSupply: string | null
     case: string | null
     os: string | null
     computerId: string | null
@@ -2228,6 +2229,7 @@ export namespace Prisma {
     memory: string | null
     motherboard: string | null
     gpu: string | null
+    powerSupply: string | null
     case: string | null
     os: string | null
     computerId: string | null
@@ -2241,6 +2243,7 @@ export namespace Prisma {
     motherboard: number
     gpu: number
     storage: number
+    powerSupply: number
     case: number
     os: number
     computerId: number
@@ -2255,6 +2258,7 @@ export namespace Prisma {
     memory?: true
     motherboard?: true
     gpu?: true
+    powerSupply?: true
     case?: true
     os?: true
     computerId?: true
@@ -2267,6 +2271,7 @@ export namespace Prisma {
     memory?: true
     motherboard?: true
     gpu?: true
+    powerSupply?: true
     case?: true
     os?: true
     computerId?: true
@@ -2280,6 +2285,7 @@ export namespace Prisma {
     motherboard?: true
     gpu?: true
     storage?: true
+    powerSupply?: true
     case?: true
     os?: true
     computerId?: true
@@ -2360,15 +2366,16 @@ export namespace Prisma {
 
   export type SpecificationGroupByOutputType = {
     id: string
-    cpu: string
-    cpuCooler: string
-    memory: string
-    motherboard: string
-    gpu: string
+    cpu: string | null
+    cpuCooler: string | null
+    memory: string | null
+    motherboard: string | null
+    gpu: string | null
     storage: string[]
-    case: string
-    os: string
-    computerId: string
+    powerSupply: string | null
+    case: string | null
+    os: string | null
+    computerId: string | null
     _count: SpecificationCountAggregateOutputType | null
     _min: SpecificationMinAggregateOutputType | null
     _max: SpecificationMaxAggregateOutputType | null
@@ -2396,6 +2403,7 @@ export namespace Prisma {
     motherboard?: boolean
     gpu?: boolean
     storage?: boolean
+    powerSupply?: boolean
     case?: boolean
     os?: boolean
     computerId?: boolean
@@ -2410,6 +2418,7 @@ export namespace Prisma {
     motherboard?: boolean
     gpu?: boolean
     storage?: boolean
+    powerSupply?: boolean
     case?: boolean
     os?: boolean
     computerId?: boolean
@@ -2424,6 +2433,7 @@ export namespace Prisma {
     motherboard?: boolean
     gpu?: boolean
     storage?: boolean
+    powerSupply?: boolean
     case?: boolean
     os?: boolean
     computerId?: boolean
@@ -2438,12 +2448,13 @@ export namespace Prisma {
     motherboard?: boolean
     gpu?: boolean
     storage?: boolean
+    powerSupply?: boolean
     case?: boolean
     os?: boolean
     computerId?: boolean
   }
 
-  export type SpecificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cpu" | "cpuCooler" | "memory" | "motherboard" | "gpu" | "storage" | "case" | "os" | "computerId", ExtArgs["result"]["specification"]>
+  export type SpecificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cpu" | "cpuCooler" | "memory" | "motherboard" | "gpu" | "storage" | "powerSupply" | "case" | "os" | "computerId", ExtArgs["result"]["specification"]>
   export type SpecificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     computer?: boolean | Specification$computerArgs<ExtArgs>
   }
@@ -2461,15 +2472,16 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      cpu: string
-      cpuCooler: string
-      memory: string
-      motherboard: string
-      gpu: string
+      cpu: string | null
+      cpuCooler: string | null
+      memory: string | null
+      motherboard: string | null
+      gpu: string | null
       storage: string[]
-      case: string
-      os: string
-      computerId: string
+      powerSupply: string | null
+      case: string | null
+      os: string | null
+      computerId: string | null
     }, ExtArgs["result"]["specification"]>
     composites: {}
   }
@@ -2901,6 +2913,7 @@ export namespace Prisma {
     readonly motherboard: FieldRef<"Specification", 'String'>
     readonly gpu: FieldRef<"Specification", 'String'>
     readonly storage: FieldRef<"Specification", 'String[]'>
+    readonly powerSupply: FieldRef<"Specification", 'String'>
     readonly case: FieldRef<"Specification", 'String'>
     readonly os: FieldRef<"Specification", 'String'>
     readonly computerId: FieldRef<"Specification", 'String'>
@@ -3122,7 +3135,7 @@ export namespace Prisma {
     /**
      * The data needed to create a Specification.
      */
-    data: XOR<SpecificationCreateInput, SpecificationUncheckedCreateInput>
+    data?: XOR<SpecificationCreateInput, SpecificationUncheckedCreateInput>
   }
 
   /**
@@ -3380,6 +3393,7 @@ export namespace Prisma {
     motherboard: 'motherboard',
     gpu: 'gpu',
     storage: 'storage',
+    powerSupply: 'powerSupply',
     case: 'case',
     os: 'os',
     computerId: 'computerId'
@@ -3609,29 +3623,31 @@ export namespace Prisma {
     OR?: SpecificationWhereInput[]
     NOT?: SpecificationWhereInput | SpecificationWhereInput[]
     id?: UuidFilter<"Specification"> | string
-    cpu?: StringFilter<"Specification"> | string
-    cpuCooler?: StringFilter<"Specification"> | string
-    memory?: StringFilter<"Specification"> | string
-    motherboard?: StringFilter<"Specification"> | string
-    gpu?: StringFilter<"Specification"> | string
+    cpu?: StringNullableFilter<"Specification"> | string | null
+    cpuCooler?: StringNullableFilter<"Specification"> | string | null
+    memory?: StringNullableFilter<"Specification"> | string | null
+    motherboard?: StringNullableFilter<"Specification"> | string | null
+    gpu?: StringNullableFilter<"Specification"> | string | null
     storage?: StringNullableListFilter<"Specification">
-    case?: StringFilter<"Specification"> | string
-    os?: StringFilter<"Specification"> | string
-    computerId?: UuidFilter<"Specification"> | string
+    powerSupply?: StringNullableFilter<"Specification"> | string | null
+    case?: StringNullableFilter<"Specification"> | string | null
+    os?: StringNullableFilter<"Specification"> | string | null
+    computerId?: UuidNullableFilter<"Specification"> | string | null
     computer?: XOR<ProductNullableScalarRelationFilter, ProductWhereInput> | null
   }
 
   export type SpecificationOrderByWithRelationInput = {
     id?: SortOrder
-    cpu?: SortOrder
-    cpuCooler?: SortOrder
-    memory?: SortOrder
-    motherboard?: SortOrder
-    gpu?: SortOrder
+    cpu?: SortOrderInput | SortOrder
+    cpuCooler?: SortOrderInput | SortOrder
+    memory?: SortOrderInput | SortOrder
+    motherboard?: SortOrderInput | SortOrder
+    gpu?: SortOrderInput | SortOrder
     storage?: SortOrder
-    case?: SortOrder
-    os?: SortOrder
-    computerId?: SortOrder
+    powerSupply?: SortOrderInput | SortOrder
+    case?: SortOrderInput | SortOrder
+    os?: SortOrderInput | SortOrder
+    computerId?: SortOrderInput | SortOrder
     computer?: ProductOrderByWithRelationInput
   }
 
@@ -3641,28 +3657,30 @@ export namespace Prisma {
     AND?: SpecificationWhereInput | SpecificationWhereInput[]
     OR?: SpecificationWhereInput[]
     NOT?: SpecificationWhereInput | SpecificationWhereInput[]
-    cpu?: StringFilter<"Specification"> | string
-    cpuCooler?: StringFilter<"Specification"> | string
-    memory?: StringFilter<"Specification"> | string
-    motherboard?: StringFilter<"Specification"> | string
-    gpu?: StringFilter<"Specification"> | string
+    cpu?: StringNullableFilter<"Specification"> | string | null
+    cpuCooler?: StringNullableFilter<"Specification"> | string | null
+    memory?: StringNullableFilter<"Specification"> | string | null
+    motherboard?: StringNullableFilter<"Specification"> | string | null
+    gpu?: StringNullableFilter<"Specification"> | string | null
     storage?: StringNullableListFilter<"Specification">
-    case?: StringFilter<"Specification"> | string
-    os?: StringFilter<"Specification"> | string
+    powerSupply?: StringNullableFilter<"Specification"> | string | null
+    case?: StringNullableFilter<"Specification"> | string | null
+    os?: StringNullableFilter<"Specification"> | string | null
     computer?: XOR<ProductNullableScalarRelationFilter, ProductWhereInput> | null
   }, "id" | "computerId">
 
   export type SpecificationOrderByWithAggregationInput = {
     id?: SortOrder
-    cpu?: SortOrder
-    cpuCooler?: SortOrder
-    memory?: SortOrder
-    motherboard?: SortOrder
-    gpu?: SortOrder
+    cpu?: SortOrderInput | SortOrder
+    cpuCooler?: SortOrderInput | SortOrder
+    memory?: SortOrderInput | SortOrder
+    motherboard?: SortOrderInput | SortOrder
+    gpu?: SortOrderInput | SortOrder
     storage?: SortOrder
-    case?: SortOrder
-    os?: SortOrder
-    computerId?: SortOrder
+    powerSupply?: SortOrderInput | SortOrder
+    case?: SortOrderInput | SortOrder
+    os?: SortOrderInput | SortOrder
+    computerId?: SortOrderInput | SortOrder
     _count?: SpecificationCountOrderByAggregateInput
     _max?: SpecificationMaxOrderByAggregateInput
     _min?: SpecificationMinOrderByAggregateInput
@@ -3673,15 +3691,16 @@ export namespace Prisma {
     OR?: SpecificationScalarWhereWithAggregatesInput[]
     NOT?: SpecificationScalarWhereWithAggregatesInput | SpecificationScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"Specification"> | string
-    cpu?: StringWithAggregatesFilter<"Specification"> | string
-    cpuCooler?: StringWithAggregatesFilter<"Specification"> | string
-    memory?: StringWithAggregatesFilter<"Specification"> | string
-    motherboard?: StringWithAggregatesFilter<"Specification"> | string
-    gpu?: StringWithAggregatesFilter<"Specification"> | string
+    cpu?: StringNullableWithAggregatesFilter<"Specification"> | string | null
+    cpuCooler?: StringNullableWithAggregatesFilter<"Specification"> | string | null
+    memory?: StringNullableWithAggregatesFilter<"Specification"> | string | null
+    motherboard?: StringNullableWithAggregatesFilter<"Specification"> | string | null
+    gpu?: StringNullableWithAggregatesFilter<"Specification"> | string | null
     storage?: StringNullableListFilter<"Specification">
-    case?: StringWithAggregatesFilter<"Specification"> | string
-    os?: StringWithAggregatesFilter<"Specification"> | string
-    computerId?: UuidWithAggregatesFilter<"Specification"> | string
+    powerSupply?: StringNullableWithAggregatesFilter<"Specification"> | string | null
+    case?: StringNullableWithAggregatesFilter<"Specification"> | string | null
+    os?: StringNullableWithAggregatesFilter<"Specification"> | string | null
+    computerId?: UuidNullableWithAggregatesFilter<"Specification"> | string | null
   }
 
   export type ProductCreateInput = {
@@ -3816,92 +3835,99 @@ export namespace Prisma {
 
   export type SpecificationCreateInput = {
     id?: string
-    cpu: string
-    cpuCooler: string
-    memory: string
-    motherboard: string
-    gpu: string
+    cpu?: string | null
+    cpuCooler?: string | null
+    memory?: string | null
+    motherboard?: string | null
+    gpu?: string | null
     storage?: SpecificationCreatestorageInput | string[]
-    case: string
-    os: string
+    powerSupply?: string | null
+    case?: string | null
+    os?: string | null
     computer?: ProductCreateNestedOneWithoutSpecificationInput
   }
 
   export type SpecificationUncheckedCreateInput = {
     id?: string
-    cpu: string
-    cpuCooler: string
-    memory: string
-    motherboard: string
-    gpu: string
+    cpu?: string | null
+    cpuCooler?: string | null
+    memory?: string | null
+    motherboard?: string | null
+    gpu?: string | null
     storage?: SpecificationCreatestorageInput | string[]
-    case: string
-    os: string
-    computerId: string
+    powerSupply?: string | null
+    case?: string | null
+    os?: string | null
+    computerId?: string | null
   }
 
   export type SpecificationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cpu?: StringFieldUpdateOperationsInput | string
-    cpuCooler?: StringFieldUpdateOperationsInput | string
-    memory?: StringFieldUpdateOperationsInput | string
-    motherboard?: StringFieldUpdateOperationsInput | string
-    gpu?: StringFieldUpdateOperationsInput | string
+    cpu?: NullableStringFieldUpdateOperationsInput | string | null
+    cpuCooler?: NullableStringFieldUpdateOperationsInput | string | null
+    memory?: NullableStringFieldUpdateOperationsInput | string | null
+    motherboard?: NullableStringFieldUpdateOperationsInput | string | null
+    gpu?: NullableStringFieldUpdateOperationsInput | string | null
     storage?: SpecificationUpdatestorageInput | string[]
-    case?: StringFieldUpdateOperationsInput | string
-    os?: StringFieldUpdateOperationsInput | string
+    powerSupply?: NullableStringFieldUpdateOperationsInput | string | null
+    case?: NullableStringFieldUpdateOperationsInput | string | null
+    os?: NullableStringFieldUpdateOperationsInput | string | null
     computer?: ProductUpdateOneWithoutSpecificationNestedInput
   }
 
   export type SpecificationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cpu?: StringFieldUpdateOperationsInput | string
-    cpuCooler?: StringFieldUpdateOperationsInput | string
-    memory?: StringFieldUpdateOperationsInput | string
-    motherboard?: StringFieldUpdateOperationsInput | string
-    gpu?: StringFieldUpdateOperationsInput | string
+    cpu?: NullableStringFieldUpdateOperationsInput | string | null
+    cpuCooler?: NullableStringFieldUpdateOperationsInput | string | null
+    memory?: NullableStringFieldUpdateOperationsInput | string | null
+    motherboard?: NullableStringFieldUpdateOperationsInput | string | null
+    gpu?: NullableStringFieldUpdateOperationsInput | string | null
     storage?: SpecificationUpdatestorageInput | string[]
-    case?: StringFieldUpdateOperationsInput | string
-    os?: StringFieldUpdateOperationsInput | string
-    computerId?: StringFieldUpdateOperationsInput | string
+    powerSupply?: NullableStringFieldUpdateOperationsInput | string | null
+    case?: NullableStringFieldUpdateOperationsInput | string | null
+    os?: NullableStringFieldUpdateOperationsInput | string | null
+    computerId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SpecificationCreateManyInput = {
     id?: string
-    cpu: string
-    cpuCooler: string
-    memory: string
-    motherboard: string
-    gpu: string
+    cpu?: string | null
+    cpuCooler?: string | null
+    memory?: string | null
+    motherboard?: string | null
+    gpu?: string | null
     storage?: SpecificationCreatestorageInput | string[]
-    case: string
-    os: string
-    computerId: string
+    powerSupply?: string | null
+    case?: string | null
+    os?: string | null
+    computerId?: string | null
   }
 
   export type SpecificationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cpu?: StringFieldUpdateOperationsInput | string
-    cpuCooler?: StringFieldUpdateOperationsInput | string
-    memory?: StringFieldUpdateOperationsInput | string
-    motherboard?: StringFieldUpdateOperationsInput | string
-    gpu?: StringFieldUpdateOperationsInput | string
+    cpu?: NullableStringFieldUpdateOperationsInput | string | null
+    cpuCooler?: NullableStringFieldUpdateOperationsInput | string | null
+    memory?: NullableStringFieldUpdateOperationsInput | string | null
+    motherboard?: NullableStringFieldUpdateOperationsInput | string | null
+    gpu?: NullableStringFieldUpdateOperationsInput | string | null
     storage?: SpecificationUpdatestorageInput | string[]
-    case?: StringFieldUpdateOperationsInput | string
-    os?: StringFieldUpdateOperationsInput | string
+    powerSupply?: NullableStringFieldUpdateOperationsInput | string | null
+    case?: NullableStringFieldUpdateOperationsInput | string | null
+    os?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SpecificationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cpu?: StringFieldUpdateOperationsInput | string
-    cpuCooler?: StringFieldUpdateOperationsInput | string
-    memory?: StringFieldUpdateOperationsInput | string
-    motherboard?: StringFieldUpdateOperationsInput | string
-    gpu?: StringFieldUpdateOperationsInput | string
+    cpu?: NullableStringFieldUpdateOperationsInput | string | null
+    cpuCooler?: NullableStringFieldUpdateOperationsInput | string | null
+    memory?: NullableStringFieldUpdateOperationsInput | string | null
+    motherboard?: NullableStringFieldUpdateOperationsInput | string | null
+    gpu?: NullableStringFieldUpdateOperationsInput | string | null
     storage?: SpecificationUpdatestorageInput | string[]
-    case?: StringFieldUpdateOperationsInput | string
-    os?: StringFieldUpdateOperationsInput | string
-    computerId?: StringFieldUpdateOperationsInput | string
+    powerSupply?: NullableStringFieldUpdateOperationsInput | string | null
+    case?: NullableStringFieldUpdateOperationsInput | string | null
+    os?: NullableStringFieldUpdateOperationsInput | string | null
+    computerId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UuidFilter<$PrismaModel = never> = {
@@ -4173,6 +4199,18 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type UuidNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedUuidNullableFilter<$PrismaModel> | string | null
+  }
+
   export type ProductNullableScalarRelationFilter = {
     is?: ProductWhereInput | null
     isNot?: ProductWhereInput | null
@@ -4186,6 +4224,7 @@ export namespace Prisma {
     motherboard?: SortOrder
     gpu?: SortOrder
     storage?: SortOrder
+    powerSupply?: SortOrder
     case?: SortOrder
     os?: SortOrder
     computerId?: SortOrder
@@ -4198,6 +4237,7 @@ export namespace Prisma {
     memory?: SortOrder
     motherboard?: SortOrder
     gpu?: SortOrder
+    powerSupply?: SortOrder
     case?: SortOrder
     os?: SortOrder
     computerId?: SortOrder
@@ -4210,9 +4250,25 @@ export namespace Prisma {
     memory?: SortOrder
     motherboard?: SortOrder
     gpu?: SortOrder
+    powerSupply?: SortOrder
     case?: SortOrder
     os?: SortOrder
     computerId?: SortOrder
+  }
+
+  export type UuidNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedUuidNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type ProductCreateimagesInput = {
@@ -4514,28 +4570,55 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedUuidNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedUuidNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedUuidNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedUuidNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type SpecificationCreateWithoutComputerInput = {
     id?: string
-    cpu: string
-    cpuCooler: string
-    memory: string
-    motherboard: string
-    gpu: string
+    cpu?: string | null
+    cpuCooler?: string | null
+    memory?: string | null
+    motherboard?: string | null
+    gpu?: string | null
     storage?: SpecificationCreatestorageInput | string[]
-    case: string
-    os: string
+    powerSupply?: string | null
+    case?: string | null
+    os?: string | null
   }
 
   export type SpecificationUncheckedCreateWithoutComputerInput = {
     id?: string
-    cpu: string
-    cpuCooler: string
-    memory: string
-    motherboard: string
-    gpu: string
+    cpu?: string | null
+    cpuCooler?: string | null
+    memory?: string | null
+    motherboard?: string | null
+    gpu?: string | null
     storage?: SpecificationCreatestorageInput | string[]
-    case: string
-    os: string
+    powerSupply?: string | null
+    case?: string | null
+    os?: string | null
   }
 
   export type SpecificationCreateOrConnectWithoutComputerInput = {
@@ -4556,26 +4639,28 @@ export namespace Prisma {
 
   export type SpecificationUpdateWithoutComputerInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cpu?: StringFieldUpdateOperationsInput | string
-    cpuCooler?: StringFieldUpdateOperationsInput | string
-    memory?: StringFieldUpdateOperationsInput | string
-    motherboard?: StringFieldUpdateOperationsInput | string
-    gpu?: StringFieldUpdateOperationsInput | string
+    cpu?: NullableStringFieldUpdateOperationsInput | string | null
+    cpuCooler?: NullableStringFieldUpdateOperationsInput | string | null
+    memory?: NullableStringFieldUpdateOperationsInput | string | null
+    motherboard?: NullableStringFieldUpdateOperationsInput | string | null
+    gpu?: NullableStringFieldUpdateOperationsInput | string | null
     storage?: SpecificationUpdatestorageInput | string[]
-    case?: StringFieldUpdateOperationsInput | string
-    os?: StringFieldUpdateOperationsInput | string
+    powerSupply?: NullableStringFieldUpdateOperationsInput | string | null
+    case?: NullableStringFieldUpdateOperationsInput | string | null
+    os?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SpecificationUncheckedUpdateWithoutComputerInput = {
     id?: StringFieldUpdateOperationsInput | string
-    cpu?: StringFieldUpdateOperationsInput | string
-    cpuCooler?: StringFieldUpdateOperationsInput | string
-    memory?: StringFieldUpdateOperationsInput | string
-    motherboard?: StringFieldUpdateOperationsInput | string
-    gpu?: StringFieldUpdateOperationsInput | string
+    cpu?: NullableStringFieldUpdateOperationsInput | string | null
+    cpuCooler?: NullableStringFieldUpdateOperationsInput | string | null
+    memory?: NullableStringFieldUpdateOperationsInput | string | null
+    motherboard?: NullableStringFieldUpdateOperationsInput | string | null
+    gpu?: NullableStringFieldUpdateOperationsInput | string | null
     storage?: SpecificationUpdatestorageInput | string[]
-    case?: StringFieldUpdateOperationsInput | string
-    os?: StringFieldUpdateOperationsInput | string
+    powerSupply?: NullableStringFieldUpdateOperationsInput | string | null
+    case?: NullableStringFieldUpdateOperationsInput | string | null
+    os?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ProductCreateWithoutSpecificationInput = {

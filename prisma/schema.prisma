@@ -37,14 +37,15 @@ model Product {
 
 model Specification {
   id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  cpu         String
-  cpuCooler   String
-  memory      String
-  motherboard String
-  gpu         String
+  cpu         String?
+  cpuCooler   String?
+  memory      String?
+  motherboard String?
+  gpu         String?
   storage     String[]
-  case        String
-  os          String
+  powerSupply String?
+  case        String?
+  os          String?
   computer    Product? @relation(fields: [computerId], references: [id])
-  computerId  String   @unique @db.Uuid
+  computerId  String?  @unique @db.Uuid
 }

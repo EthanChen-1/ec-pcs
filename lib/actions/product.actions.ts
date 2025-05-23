@@ -14,5 +14,33 @@ export async function getLatestProducts() {
 }
 
 export async function getProductBySlug(slug: string) {
-  return await prisma.product.findFirst({ where: { slug: slug } });
+  return await prisma.product.findFirst({
+    where: { slug: slug },
+    select: {
+      name: true,
+      slug: true,
+      category: true,
+      images: true,
+      brand: true,
+      description: true,
+      stock: true,
+      price: true,
+      rating: true,
+      numReviews: true,
+      isFeatured: true,
+      Specification: {
+        select: {
+          cpu: true,
+          cpuCooler: true,
+          memory: true,
+          motherboard: true,
+          gpu: true,
+          storage: true,
+          case: true,
+          os: true,
+          powerSupply: true,
+        },
+      },
+    },
+  });
 }

@@ -11,10 +11,12 @@ async function ProductDetailsPage(props: {
 }) {
   const { slug } = await props.params;
   const product = await getProductBySlug(slug);
+  const specification = await product?.Specification;
 
   if (!product) {
     notFound();
   }
+
   return (
     <>
       <section>
@@ -38,8 +40,24 @@ async function ProductDetailsPage(props: {
               </div>
             </div>
             <div className="mt-10">
-              <p className="font-semibold">Description</p>
-              <p>{product.description}</p>
+              <p className="font-semibold ">Description</p>
+              <p className="font-light">{product.description}</p>
+            </div>
+            <div className="mt-10">
+              <p className="font-semibold">Technical Specifications</p>
+              {specification && (
+                <ul>
+                  <li className="font-light">{specification.cpu}</li>
+                  <li className="font-light">{specification.cpuCooler}</li>
+                  <li className="font-light">{specification.memory}</li>
+                  <li className="font-light">{specification.motherboard}</li>
+                  <li className="font-light">{specification.gpu}</li>
+                  <li className="font-light">{specification.powerSupply}</li>
+                  <li className="font-light">{specification.os}</li>
+                  <li className="font-light">{specification.storage[0]}</li>
+                  <li className="font-light">{specification.case}</li>
+                </ul>
+              )}
             </div>
           </div>
           <div>
